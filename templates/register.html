@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户注册</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        div {
+            color: red;
+            width: 100%;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>欢迎注册京东会员</h1>
+<div>
+    {#  如果是表单提交则必须在表单的元素上添加name属性  #}
+    <form action="/submit_registration" method="post">
+        <p><input type="text" name="username" placeholder="请输入账号"></p>
+        <p><input type="password" name="address" placeholder="请输入密码"></p>
+        <p><input type="submit" value="提交"></p>
+    </form>
+</div>
+</body>
+</html>

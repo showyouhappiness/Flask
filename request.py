@@ -9,7 +9,7 @@ app.config.from_object(settings)
 # 返回字典
 @app.route('/index')
 def index():
-    print(request.headers)
+    print(request.headers)  # request对象，对象访问属性，也可以调用方法。
     return 'welcome everyone'
 
 
