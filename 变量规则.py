@@ -40,7 +40,7 @@ def get_path(p):
 
 
 @app.route('/index/<uuid:uid>')  # 这里必须传递uuid的格式，可以通过uuid模块里面的uuid4获取  uuid.uuid4()
-def get_path(uid):
+def get_uuid(uid):
     print(uid, 'uid的类型是：{}'.format(type(uid)))
     return '获取唯一的标识码'
 
