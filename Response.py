@@ -5,6 +5,17 @@ import settings
 app = Flask(__name__)
 app.config.from_object(settings)
 
+"""
+response响应：
+    返回值的类型：
+        1. str                  自动转成response对象
+        2. dict                 json
+        3. response对象  
+        4. make_response()      response对象
+        5. redirect()  重定向    302状态码
+        6. render_template()    模板渲染 + 模板 
+"""
+
 
 # 返回字典
 @app.route('/index')

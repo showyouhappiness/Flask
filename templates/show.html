@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+    <p>用户信息展示</p>
+    <p>姓名：{{ name }}</p>
+    <p>年龄：{{ age }}</p>
+    <p>性别：{{ gender }}</p>
+    <br>
+    {{ friends[0] }}
+    {{ friends[1:2] }}
+    {{ friends.2 }}
+    {{ friends.3 }}
+    <br>
+    <p>用户信息展示</p>
+    <p>姓名：{{ person.name }}</p>
+    <p>年龄：{{ person.age }}</p>
+    <p>性别：{{ person.get('gender') }}</p>
+    <p>爱好：{{ person.hobby }}</p>
+    <br>
+    <p>女朋友</p>
+    <p>姓名：{{ girl }}</p>  {# 因为我们在py页面写有默认返回name值 #}
+    <p>姓名：{{ girl.name }}</p>
+    <p>年龄：{{ person.age }}</p>
+    <p>性别：{{ girl.gender }}</p>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 
 import settings
 
@@ -10,7 +10,7 @@ app.config.from_object(settings)
 users = []
 
 
-@app.route('/')
+@app.route('/', endpoint='index')
 def index():
     return render_template('index.html')
 
@@ -34,24 +34,36 @@ def submit_registration():
     if request.method == 'GET':
         print(request.args)  # 字典类型
         username = request.args.get('username')
-        address = request.args.get('address')
-        print(username, address)  # 这时我们就可以将用户名和密码保存在数据库中
+        password = request.args.get('password')
+        repassword = request.args.get('repassword')
+        print(username, password)  # 这时我们就可以将用户名和密码保存在数据库中
 
     else:
         # 这里是POST请求获取值的方法
         print(request.form)  # 字典类型
         username = request.form.get('username')
-        address = request.form.get('address')
-        print(username, address)  # 这时我们就可以将用户名和密码保存在数据库中
-    user = {'username': username, 'address': address}
-    users.append(user)
-    print(users)
-    return '提交成功'
+        password = request.form.get('password')
+        repassword = request.form.get('repassword')
+        print(username, password)  # 这时我们就可以将用户名和密码保存在数据库中
+    if password == repassword:
+        user = {'username': username, 'password': password}
+        users.append(user)
+        print(users)
+        return redirect(url_for('index'))
+    else:
+        return '两次密码不一致'
 
 
 @app.route('/show')
 def show():
     return json.dumps(users)
+
+
+@app.route('/test')
+def test():
+    url = url_for('index')  # 路径反向解析 ，因为有时路径很长  我们可以设置一个小名 通过小名来获取路径
+    print(url)  # 得到的路径
+    return 'test'
 
 
 print(app.url_map)  # 路由规则表；根据路由规则表找到匹配的函数，然后执行函数（render_template('register.html')）。
