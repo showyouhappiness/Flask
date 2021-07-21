@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ msg }}<!-- 带有标签的字符串 -->
+<hr>
+{{ msg | safe }} <!-- 禁用转译 -->
+<hr>
+{{ n1 }}<!-- 字符串 -->
+<hr>
+{{ n1 | capitalize }}<!-- 单词的首字母大写 -->
+<hr>
+{{ n1 | lower }}<!-- 全部小写 -->
+<hr>
+{{ n1 | upper }}<!-- 全部大写 -->
+<hr>
+{{ n1 | title }}<!-- 一句话中每一个单词的首字母大写 -->
+<hr>
+{{ n1 | reverse }}<!-- 单词翻转 -->
+<hr>
+{{ n1 | truncate }}<!-- 字符串截断 -->
+<hr>
+
+<!--获取键-->
+{% for k in dict.keys() %}
+<p>{{ k }}</p>
+{% endfor %}
+<!--获取值-->
+{% for v in dict.values() %}
+<p>{{ v }}</p>
+{% endfor %}
+<!--获取键值对-->
+{% for k,v in dict.items() %}
+<p>{{ k }}:{{ v }}</p>
+{% endfor %}
+<hr>
+
+<!--获取键-->
+{% for k in json.0.keys() %}
+<p>{{ k }}</p>
+{% endfor %}
+<!--获取值-->
+{% for v in json.0.values() %}
+<p>{{ v }}</p>
+{% endfor %}
+<!--获取键值对-->
+{% for k,v in json.0.items() %}
+<p>{{ k }}:{{ v }}</p>
+{% endfor %}
+<hr>
+{{ list | first }}
+<hr>
+{{ list | last }}
+<hr>
+{{ list | length }}
+<hr>
+<!--列表整型的计算-->
+{{ list | sum}}
+<hr>
+{{ list | sort}}
+</body>
+</html>
