@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title%}父模板的title{% endblock %}
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+    {% block css %}{% endblock %}
+</head>
+<body>
+<div id="head">
+    <ul>
+        <li>首页</li>
+        <li>秒杀</li>
+        <li>超市</li>
+        <li>图书</li>
+        <li>会员</li>
+    </ul>
+</div>
+<div id="middle">
+    {% block middle %}
+    <button id="btn">我是中间部分</button>
+    {% endblock %}
+</div>
+<div id="foot">
+    我是底部
+</div>
+{% block js %}
+
+{% endblock %}
+</body>
+</html>

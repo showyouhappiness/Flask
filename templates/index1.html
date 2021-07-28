@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+首页
+{% endblock%}
+{% block css %}
+<style>
+    #middle {
+        background-color: deeppink;
+        color: white;
+        font-weight: 700;
+    }
+
+    li {
+        width: 33%;
+        height: 500px;
+        float: left;
+        border: 1px solid red;
+    }
+</style>
+{% endblock%}
+
+{% block js %}
+<script>
+    btn = document.getElementById('btn')
+    btn.onclick = function (){
+        alert('牛逼666！')
+    }
+</script>
+{% endblock %}
