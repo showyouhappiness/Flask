@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+用户注册
+{% endblock %}
+{% block css %}
+<style>
+    p {
+        color: red;
+    }
+</style>
+{% endblock %}
+{% block middle %}
+<p>{{ msg }}</p>
+<form action="/register" method="POST">
+    <p><input type="text" name="username" placeholder="用户名"></p>
+    <p><input type="password" name="password" placeholder="密码"></p>
+    <p><input type="password" name="repassword" placeholder="确认密码"></p>
+    <p><input type="number" name="phone" placeholder="手机号"></p>
+    <p><input type="submit" value="用户注册"></p>
+</form>
+{% endblock %}
