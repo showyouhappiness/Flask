@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, url_for
 
 from apps.user.model import User
 
@@ -9,6 +9,7 @@ users = list()
 
 @user_bp.route('/')
 def user_center():
+    print(url_for('user.register'))
     return render_template('user/show.html', users=users)
 
 
@@ -45,6 +46,26 @@ def del_user():
             return redirect('/')
     else:
         return '删除失败'
+
+
+@user_bp.route('/update', methods=['GET', 'POST'], endpoint='update')
+def update_user():
+    if request.method == 'POST':
+        realname = request.form.get('realname')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        phone = request.form.get('phone')
+        for user in users:
+            if user.username == realname:
+                user.username = username
+                user.password = password
+                user.phone = phone
+                return redirect('/')
+    else:
+        username = request.args.get('username')
+        for user in users:
+            if user.username == username:
+                return render_template('user/update.html', user=user)
 
 
 @user_bp.route('/logout', methods=['GET', 'POST'])
